@@ -445,6 +445,13 @@ header{
    padding-top: 20px;
 }
 
+.comment h2{
+    color: gray;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px; 
+}
+
 .comment-header {
     display: flex;
     font-weight: bold;
@@ -458,6 +465,10 @@ header{
 .profile{
     display: flex;
     flex-direction: column;
+}
+
+.profile span{
+    color:white;
 }
 .profile-picture {
     object-fit: cover;
@@ -500,6 +511,13 @@ header{
     color: white;
     font-family:'MontSerrat' sans-serif;
     font-size: 1rem;
+}
+
+.contact h2{
+    color: gray;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px; 
 }
 
 .form-control{
