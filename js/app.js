@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-    $(window).on('load', function(){
-        $('.preloader').addClass('complete')
-    })
+        setTimeout(function() {
+            $('.preloader').addClass('complete');
+        }, 1500);
+
    const header = document.querySelector("[data-header]")
    const mainSide = document.querySelector("[data-navbar]")
    const overlay = document.querySelector("[data-overlay]")
@@ -12,12 +13,12 @@ $(document).ready(function(){
     const scrollToPosition = lastScrollPos < window.scrollY
     if(scrollToPosition){
         header.classList.add('hide')
-        // mainSide.classList.add('hide')
+      
         mainSide.classList.remove('active')
     }else {
         header.classList.remove('hide')
        
-        // mainSide.classList.remove('hide')
+      
     }
     
     lastScrollPos = window.scrollY
@@ -34,7 +35,7 @@ $(document).ready(function(){
     })
 
     var typed = new Typed(".element", {
-        strings: ['John Doe', 'a Developer', 'a Designer', 'a Businessman'],
+        strings: ['John Doe', 'a Developer', 'a Designer', 'a Photographer'],
         smartBackspace:true,
         typeSpeed:100,
         backSpeed:100,
@@ -97,5 +98,35 @@ const toggleNavbar = function(){
 addEventOnElements(navTogglers, "click", toggleNavbar)
 
 
-
-
+/**CLIENTS */
+document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector(".carousel");
+    const items = document.querySelectorAll(".carousel li");
+    const totalItems = items.length;
+    const itemWidth = items[0].offsetWidth + 80; // Include gap (80px)
+    const visibleItems = Math.ceil(document.querySelector(".carousel-wrapper").offsetWidth / itemWidth);
+    const resetPosition = -itemWidth * totalItems / 2; // Halfway through the list
+    let scrollPosition = 0;
+  
+    function moveCarousel() {
+      scrollPosition -= 1; // Move left 1px at a time
+      carousel.style.transform = `translateX(${scrollPosition}px)`;
+  
+      // Reset position when we reach the end of the duplicated list
+      if (scrollPosition <= resetPosition) {
+        scrollPosition = 0;
+        carousel.style.transition = "none"; // Disable transition for instant reset
+        carousel.style.transform = `translateX(${scrollPosition}px)`;
+  
+        // Re-enable smooth transition
+        setTimeout(() => {
+          carousel.style.transition = "transform 0.5s linear";
+        });
+      }
+  
+      requestAnimationFrame(moveCarousel); // Continue the animation
+    }
+  
+    // Start the animation
+    moveCarousel();
+  });

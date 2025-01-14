@@ -1,4 +1,5 @@
 /*base rules*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 
 *{
@@ -7,12 +8,12 @@
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-family: 'Montserrat' sans-serif;
+    font-family: 'Dancing Script', sans-serif;
 }
 
 p{
-    font-family:'Nunito', sans-serif ;
-    font-size: 20px;
+    font-family:'Hanken Grotesk', sans-serif ;
+    font-size: 14px;
     line-height: 30px;
     color: #6c757d;
 }
@@ -87,8 +88,8 @@ p{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 10px solid rgba(255, 255, 255, 0.1);
     border-top: 10px solid #0287e0;
@@ -114,7 +115,7 @@ nav .r-nav{
 
 nav .navbar-brand{
     font-size: 22px;
-    font-family:sans-serif;
+    font-family:'Dancing Script',sans-serif;
     color:#0287e0;
     transition:.5s all;
 }
@@ -131,7 +132,7 @@ nav .navbar-brand span{
 nav .navbar-nav li a{
     color: rgba(255,255,255,0.8) !important;
     padding-top: 22px;
-    font-size:16px;
+    font-size:12px;
     letter-spacing: 0.05em;
     font-weight:600;
     font-family:'Nunito', sans-serif
@@ -183,6 +184,7 @@ nav.stickyadd .navbar-brand{
 
 nav.stickyadd .navbar-nav .nav-link{
     color:white !important;
+    font-family: 'Hanken Grotesk', cursive !important;
 }
 
 .navbar .hamburger{
@@ -441,7 +443,7 @@ header{
 }
 
 .about li a:hover{
-   color: #EE8683; 
+   color: #0287e0; 
 }
 
 .img-customThumbnail {
@@ -487,7 +489,7 @@ header{
 }
 
 .exp-class label{
-    font-size: 20px;
+    font-size: 16px;
     margin: 10px;
     color: white;
 }
@@ -565,31 +567,50 @@ header{
     color:white;
 }
 
-/*Clients*/
-.clients{
+
+.clients {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-   height:250px;
+    width: 100%;
+    height: 250px;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
     background-color: #000000;
-
-}
-.clients ul{
- display: flex;
- flex-wrap: wrap;
- align-items: center;
- justify-items: center;
- justify-content: space-around;
- gap: 80px; 
- list-style: none;
- filter: grayscale(100%);
-}
-.clients li img{
+  }
+  
+  .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    list-style: none;
+    transition: transform 0.5s linear;
+    will-change: transform;
+  }
+  
+  .clients li img {
     width: 100px;
     margin: 2px;
-}
-
+    filter: grayscale(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .clients li img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .clients li img {
+      width: 80px;
+    }
+  }
 
 
 
@@ -665,7 +686,7 @@ header{
 footer{
     height: 200px;
     width:100%;
-    background-color: #191919;
+    background-color: #0d0d0d;
     background-attachment: fixed;
     background-position: cover;
     background-size: cover;
@@ -691,7 +712,7 @@ footer .r-icon a:hover{
 footer a{
     cursor: pointer;
     font-size: 22px;
-    font-family:sans-serif;
+    font-family:"Dancing Script",sans-serif;
     color:#0287e0;
     text-decoration: none;
     transition:.5s all;                                                                                                                                                                                                                                                                      
