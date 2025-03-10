@@ -23,41 +23,64 @@ $(document).ready(function(){
     
     lastScrollPos = window.scrollY
    }
-    $(window).on('scroll', function(){
-        var scroll = $(window).scrollTop();
-        if(scroll >= 50){
-           $('.sticky').addClass("stickyadd");
-           hideNav();
-        }else{
-            $('.sticky').removeClass("stickyadd")
-            
-        }
-    })
 
-    var typed = new Typed(".element", {
-        strings: ['John Doe', 'a Developer', 'a Designer', 'a Photographer'],
-        smartBackspace:true,
-        typeSpeed:100,
-        backSpeed:100,
-        loop:true,
-        loopCount:Infinity,
-        startDelay:1000
-    })
+    
+    let timer;
+    $(window).on('scroll', function () {
+       clearTimeout(timer);
+        timer = setTimeout(() => {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 50) {
+               $('.sticky').addClass("stickyadd");
+               hideNav();
+           } else {
+               $('.sticky').removeClass("stickyadd");
+           }
+        }, 100); // Adjust timeout as needed
+     });
+
+    var typedElement = document.querySelector(".element"); // Check if the element exists
+
+    if (typedElement) {
+        var typed = new Typed(".element", {
+            strings: ['John Doe', 'a Developer', 'a Designer', 'a Photographer'],
+            smartBackspace: true,
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true,
+            loopCount: Infinity,
+            startDelay: 1000
+        });
+    }
 
 
     //progress bars
 
-    var waypoint = new Waypoint({
-        element: document.getElementById('exp-id'),
-        handler: function(direction) {
-            var p = document.querySelectorAll('.progress-bar');
-            p[0].setAttribute('style', "width:100%;transition:1s all");
-            p[1].setAttribute('style', "width:95%;transition:1.5s all");
-            p[2].setAttribute('style', "width:85%;transition:1.7s all");
-            p[3].setAttribute('style', "width:99%;transition:2s all");
-        },
-        offset:"80%"
-      })
+    var expElement = document.getElementById("exp-id");
+
+    if (expElement) {
+        var waypoint = new Waypoint({
+            element: expElement,
+            handler: function (direction) {
+                var p = document.querySelectorAll(".progress-bar");
+
+                if (p.length >= 4) { // Ensure at least 4 progress bars exist
+                    p[0].style.width = "100%";
+                    p[0].style.transition = "1s all";
+                    
+                    p[1].style.width = "95%";
+                    p[1].style.transition = "1.5s all";
+                    
+                    p[2].style.width = "85%";
+                    p[2].style.transition = "1.7s all";
+                    
+                    p[3].style.width = "99%";
+                    p[3].style.transition = "2s all";
+                }
+            },
+            offset: "80%",
+        });
+    }
 
    //owl carousel
    $('.owl-carousel').owlCarousel({
@@ -69,13 +92,35 @@ $(document).ready(function(){
 
 
   
-
-
-  var filterizd = $('.filter-container').filterizr({
-    animationDuration:.5,
-   })
-
+//  var filterizd = document.querySelector(".filter-container");
+ 
+//    if (filterizd) {
+//      $(".filter-container").filterizr({
+//         animationDuration: 0.5, // Adjust as needed
+//      });
+//     }
 })
+
+
+$(document).ready(function () {
+    let isFilterInitialized = false;
+
+    function initFilter() {
+        if (!isFilterInitialized) {
+            $(".filter-container").filterizr({
+                animationDuration: 0.5, // Adjust as needed
+            });
+            isFilterInitialized = true;
+        }
+    }
+
+    $(".r-btn").on("click", function () {
+        initFilter();
+    });
+});
+
+
+
 
 const addEventOnElements = function(elements, eventType, callback){
     for(let i = 0, len = elements.length; i< len; i++){
@@ -99,34 +144,41 @@ addEventOnElements(navTogglers, "click", toggleNavbar)
 
 
 /**CLIENTS */
+
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".carousel");
+    const wrapper = document.querySelector(".carousel-wrapper");
     const items = document.querySelectorAll(".carousel li");
+
+    if (!carousel || !wrapper || items.length === 0) {
+        return; // Exit script if elements are missing
+    }
+
     const totalItems = items.length;
     const itemWidth = items[0].offsetWidth + 80; // Include gap (80px)
-    const visibleItems = Math.ceil(document.querySelector(".carousel-wrapper").offsetWidth / itemWidth);
-    const resetPosition = -itemWidth * totalItems / 2; // Halfway through the list
+    const visibleItems = Math.ceil(wrapper.offsetWidth / itemWidth);
+    const resetPosition = (-itemWidth * totalItems) / 2; // Halfway through the list
     let scrollPosition = 0;
-  
+
     function moveCarousel() {
-      scrollPosition -= 1; // Move left 1px at a time
-      carousel.style.transform = `translateX(${scrollPosition}px)`;
-  
-      // Reset position when we reach the end of the duplicated list
-      if (scrollPosition <= resetPosition) {
-        scrollPosition = 0;
-        carousel.style.transition = "none"; // Disable transition for instant reset
+        scrollPosition -= 1; // Move left 1px at a time
         carousel.style.transform = `translateX(${scrollPosition}px)`;
-  
-        // Re-enable smooth transition
-        setTimeout(() => {
-          carousel.style.transition = "transform 0.5s linear";
-        });
-      }
-  
-      requestAnimationFrame(moveCarousel); // Continue the animation
+
+        // Reset position when we reach the end of the duplicated list
+        if (scrollPosition <= resetPosition) {
+            scrollPosition = 0;
+            carousel.style.transition = "none"; // Disable transition for instant reset
+            carousel.style.transform = `translateX(${scrollPosition}px)`;
+
+            // Re-enable smooth transition
+            setTimeout(() => {
+                carousel.style.transition = "transform 0.5s linear";
+            });
+        }
+
+        requestAnimationFrame(moveCarousel); // Continue the animation
     }
-  
+
     // Start the animation
     moveCarousel();
-  });
+});
