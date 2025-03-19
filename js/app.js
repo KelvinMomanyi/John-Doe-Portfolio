@@ -133,6 +133,8 @@ const addEventOnElements = function(elements, eventType, callback){
 const navbar = document.querySelector("[data-navbar]")
 const navTogglers = document.querySelectorAll('[data-nav-toggler]')
 const overlay = document.querySelector("[data-overlay]")
+const sidebarLinks = document.querySelectorAll(".sidebar-item a");
+
 
 const toggleNavbar = function(){
     navbar.classList.toggle("active")
@@ -141,6 +143,20 @@ const toggleNavbar = function(){
 }
 
 addEventOnElements(navTogglers, "click", toggleNavbar)
+
+
+// Attach event listener to navbar toggler buttons
+navTogglers.forEach(toggler => {
+    toggler.addEventListener("click", toggleNavbar);
+});
+
+// Attach event listener to each sidebar link
+sidebarLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navbar.classList.remove("active"); // Hide navbar
+        overlay.classList.remove("active"); // Hide overlay
+    });
+});
 
 
 /**CLIENTS */
