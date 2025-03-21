@@ -1,8 +1,15 @@
+window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.querySelector(".preloader").style.display = "none";
+    }, 500); // Adjust delay as needed
+  });
+  
+
 $(document).ready(function(){
 
-        setTimeout(function() {
-            $('.preloader').addClass('complete');
-        }, 1500);
+        // setTimeout(function() {
+        //     $('.preloader').addClass('complete');
+        // }, 1500);
 
    const header = document.querySelector("[data-header]")
    const mainSide = document.querySelector("[data-navbar]")
