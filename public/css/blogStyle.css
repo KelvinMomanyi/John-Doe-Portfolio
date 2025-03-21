@@ -1,0 +1,247 @@
+
+/*Header*/
+header{
+    height: 100vh;
+    width:100%;
+    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/portfolio.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+ 
+ 
+ 
+
+
+/*about*/
+
+.about{
+    background-color: #000000;
+}
+
+.about h2{
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.about p{
+    font-family: 'DM Sans', sans-serif;
+}
+.about li a{
+    color:#000;
+    display: inline-block;
+    height: 42px;
+    width:42px;
+    font-size: 20px;
+    border: 2px solid #d4d4d4;
+    border-radius: 50%;
+    line-height: 40px;
+    transition: 0.5s all;
+    text-align: center;
+}
+
+.about li a:hover{
+   color: #EE8683; 
+}
+
+.img-customThumbnail {
+    padding: 0.05rem;
+    box-shadow: -10px 0 20px 10px rgba(1, 125, 197, 0.5);
+    max-width: 100%;
+    height: auto;
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow{
+    0%{
+        box-shadow: -10px 0 20px rgba(1, 125, 197, 0.5);
+    }
+    100%{
+        box-shadow:-10px 0 40px rgba(1, 125, 197, 0.5)
+    }
+  }
+
+  .list-inline-item a i{
+    color: #0287e0;
+    text-decoration: none;
+  }
+
+
+/*Experience Section*/
+.exp-class{
+    padding:2rem 0;
+}
+
+.exp-class .progress{
+    height: 10px;
+    border-radius: 20px;
+    font-size:10px;
+}
+
+.progress-bar{
+    background-color: #0287e0 !important;
+}
+
+.exp-class h3{
+    color: white;
+}
+
+.exp-class label{
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+}
+
+
+
+/*Comments*/
+.comment {
+
+   display: flex;
+   width: 100%;
+   flex-direction: column;
+   padding-top: 20px;
+}
+
+.comment h2{
+    color: gray;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px; 
+}
+
+.comment-header {
+    display: flex;
+    font-weight: bold;
+     margin-bottom: 5px;
+     
+}
+
+.comment-content{
+    padding-left: 60px;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile span{
+    color:white;
+}
+.profile-picture {
+    object-fit: cover;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* Make the image round */
+    margin-right: 10px; /* Add spacing between picture and content */
+}
+
+
+.reply {
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+
+/*Contact Us*/
+.contact .text-center .col{
+    color: white;
+}
+.contact .input{
+    background-color: #000;
+}
+.contact input::placeholder {
+    color: rgb(255, 255, 255); /* Change this to the desired color */
+}
+.contact textarea::placeholder {
+    color: rgb(255, 255, 255); 
+} 
+.contact .r-icon{
+    font-size: 25px;
+    text-align: center;
+}
+
+.contact .r-icon i{
+    color: #0287e0;
+}
+
+.contact .r-icon h3, p{
+    color: white;
+    font-family:'MontSerrat' sans-serif;
+    font-size: 1rem;
+}
+
+.contact h2{
+    color: gray;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px; 
+}
+
+.form-control{
+    background-color: #000;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.contact .btn{
+    margin: 2rem;
+}
+
+
+
+
+/* Works in Chrome, Edge, and Safari */
+/* Width */
+::-webkit-scrollbar {
+    width:5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #060606;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0287e0;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  @media only screen and (max-width:1200px) {
+    .side-margin{
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+  }
+
+  @media only screen and (max-width:600px){
+    .side-margin{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+  }
+
+
+
+
+  .comment-author{
+    font-family: 'Hanken Grotesk';
+  }
+
+  .comment-date{
+   font-family: 'Hanken Grotesk'
+  }
+  .comment-content{
+  font-family:'Hanken Grotesk' ;
+  }
+  
+  
