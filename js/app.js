@@ -102,11 +102,12 @@ $(document).ready(function(){
 })
 
 
+
 $(document).ready(function () {
     let isFilterInitialized = false;
 
     function initFilter() {
-        if (!isFilterInitialized) {
+        if (!isFilterInitialized && $(".filter-container").length) {
             $(".filter-container").filterizr({
                 animationDuration: 0.5, // Adjust as needed
             });
@@ -121,7 +122,6 @@ $(document).ready(function () {
 
 
 
-
 const addEventOnElements = function(elements, eventType, callback){
     for(let i = 0, len = elements.length; i< len; i++){
         elements[i].addEventListener(eventType, callback)
@@ -132,14 +132,12 @@ const addEventOnElements = function(elements, eventType, callback){
 /**NAVBAR */
 const navbar = document.querySelector("[data-navbar]")
 const navTogglers = document.querySelectorAll('[data-nav-toggler]')
-const overlay = document.querySelector("[data-overlay]")
 const sidebarLinks = document.querySelectorAll(".sidebar-item a");
 
 
 const toggleNavbar = function(){
     navbar.classList.toggle("active")
-    overlay.classList.toggle("active")
-   console.log("nav")
+   
 }
 
 addEventOnElements(navTogglers, "click", toggleNavbar)
@@ -154,7 +152,7 @@ navTogglers.forEach(toggler => {
 sidebarLinks.forEach(link => {
     link.addEventListener("click", () => {
         navbar.classList.remove("active"); // Hide navbar
-        overlay.classList.remove("active"); // Hide overlay
+        
     });
 });
 
@@ -198,3 +196,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start the animation
     moveCarousel();
 });
+
+
+
+function showMessage(event) {
+    event.preventDefault(); // Prevent form from submitting
+
+    const successMessage = document.getElementById("successMessage");
+    successMessage.style.display = "block"; // Show success message
+
+    // Hide the message after 3 seconds
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 3000);
+
+    // Optionally clear form fields
+    document.getElementById("contactForm").reset();
+  }

@@ -519,7 +519,7 @@
          </div>
        </div>
         <div class="col-md-8  text-center">
-          <form>
+          <form id="contactForm">
             <div class="form-row" >
               <div class="form-group col-md-10">
                  <input type="text" class="form-control" placeholder="Name">
@@ -534,11 +534,14 @@
             <div class="form-group col-md-10">
               <textarea class="form-control" placeholder="Message" rows="7" style="resize:none"></textarea>
             </div>
-            <button type="submit" class="btn r-btn">
+            <button type="submit" class="btn r-btn" onclick="showMessage(event)">
               Submit
             </button>
           </form>
-          
+          <!-- Success Notification -->
+          <div id="successMessage" class="alert alert-success" style="display: none; margin-top: 10px;">
+            Your message has been sent successfully!
+          </div>
         </div>
 
        
@@ -597,7 +600,6 @@
  <script >
   $('.tilt').tilt();
 </script>
-
  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </body>
 </html>

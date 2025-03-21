@@ -264,7 +264,7 @@
       </div>
       <div class="row mt-5">
         <div class="col-md-8">
-            <form>
+            <form id="contactForm">
             <div class="form-row">
                 <div class="form-group col-md-6">
                    <input type="text" class="form-control" placeholder="Name">
@@ -279,11 +279,14 @@
             <div class="form-group">
                 <textarea class="form-control" placeholder="Message" rows="7" style="resize:none"></textarea>
             </div>
-            <button type="submit" class="btn r-btn float-right">
+            <button type="submit" class="btn r-btn float-right" onclick="showMessage(event)">
                 Post Comment
             </button>
             </form>
-            
+             <!-- Success Notification -->
+           <div id="successMessage" class="alert alert-success" style="display: none; margin-top: 10px;">
+             Your message has been sent successfully!
+           </div>
         </div>
       </div>
     </div> 
